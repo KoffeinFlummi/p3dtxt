@@ -9,7 +9,12 @@ The format is a fairly direct translation of the binary one. About the only stru
 
 By default, integers are converted to hex and floats to decimal floating point numbers. This can introduce some minor rounding errors when converting back. To prevent this, pass the `--lossless` option to store integers in hex as well. The resolution float is given a `0x` prefix to indicate this. No other values have a `0x` prefix.
 
-**Even with lossless conversion, converting to text and back can introduce some minor differences**: The face data structure in MLOD P3Ds always has enough room for 4 vertices, even if the face only has 3. This padding is not always zeroes (it seems to be old data left behind when rearranging or modifying faces in Object Builder). Since this information is useless, it's ignored during conversion to text, and replaced with zeroes when converting back.
+**Even with lossless conversion, converting to text and back can introduce some minor differences**: The face data structure in MLOD P3Ds always has enough room for 4 vertices, even if the face only has 3. This padding is not always zeroes (it seems to be old data left behind when rearranging or modifying faces in Object Builder). Since this information is useless, it's ignored during conversion to text, and replaced with zeroes when converting back. It's also discarded when binarizing to ODOL, so the original P3D and one converted to text and back should result in the same ODOL P3D regardless of these differences.
+
+As an example here's the [IV bag](https://github.com/acemod/ACE3/blob/c9a47ec05337d8653d68492d29efccb55dfc1e1d/addons/medical/data/IVBag_500ml.p3d) from ACE as a text-based file:
+
+- [lossy](https://gist.github.com/KoffeinFlummi/a64a158426373e848b3709511551e469)
+- [lossless](https://gist.github.com/KoffeinFlummi/a38c238a9b917ab4912d274fb8c60473)
 
 ## Usage
 
