@@ -1,0 +1,18 @@
+[package]
+name = "p3dtxt"
+version = "0.1.0"
+description = "Tool for converting Arma 3 3D models"
+license = "GPL-2.0-or-later"
+categories = ["command-line-utilities"]
+authors = ["KoffeinFlummi <koffeinflummi@protonmail.com>"]
+homepage = "https://github.com/KoffeinFlummi/p3dtxt"
+repository = "https://github.com/KoffeinFlummi/p3dtxt"
+readme = "README.md"
+
+[dependencies]
+armake2 = { path = "../armake2", version = "*" }
+docopt = "1.0.2"
+serde = "1.0"
+serde_derive = "1.0"
+text_io = "0.1.7"
+linked-hash-map = "0.5.1"
