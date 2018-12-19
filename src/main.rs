@@ -41,6 +41,7 @@ A note on losslessness:
     tools. This padding carries no useful information.
     Consult the README for more information.
 ";
+const VERSION: &'static str = env!("CARGO_PKG_VERSION");
 
 #[derive(Debug, Deserialize)]
 struct Args {
@@ -266,7 +267,7 @@ fn main() {
                             .unwrap_or_else(|e| e.exit());
 
     if args.flag_version {
-        println!("v0.1.0");
+        println!("v{}", VERSION);
         std::process::exit(0);
     }
 
