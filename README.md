@@ -7,7 +7,7 @@ A tool for converting MLOD P3Ds to a text-based representation. This allows usin
 
 The format is a fairly direct translation of the binary one. About the only structural change is storing texture and material paths in a lookup table instead of storing them seperately for every face. The final size should be less than 150% of the size of the binary one for most models.
 
-By default, integers are converted to hex and floats to decimal floating point numbers. This can introduce some minor rounding errors when converting back. To prevent this, pass the `--lossless` option to store integers in hex as well. The resolution float is given a `0x` prefix to indicate this. No other values have a `0x` prefix.
+By default, integers are converted to hex and floats to decimal floating point numbers. This can introduce some minor rounding errors when converting back. To prevent this, pass the `--lossless` option to store floats in hex as well. The resolution float is given a `0x` prefix to indicate this. No other values have a `0x` prefix.
 
 **Even with lossless conversion, converting to text and back can introduce some minor differences**: The face data structure in MLOD P3Ds always has enough room for 4 vertices, even if the face only has 3. This padding is not always zeroes (it seems to be old data left behind when rearranging or modifying faces in Object Builder). Since this information is useless, it's ignored during conversion to text, and replaced with zeroes when converting back. It's also discarded when binarizing to ODOL, so the original P3D and one converted to text and back should result in the same ODOL P3D regardless of these differences.
 
