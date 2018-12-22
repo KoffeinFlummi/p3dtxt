@@ -10,7 +10,7 @@ repository = "https://github.com/KoffeinFlummi/p3dtxt"
 readme = "README.md"
 
 [dependencies]
-armake2 = "^0.2.0"
+armake2 = "^0.3.0"
 docopt = "1.0.2"
 serde = "1.0"
 serde_derive = "1.0"
