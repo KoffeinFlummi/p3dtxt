@@ -140,7 +140,7 @@ fn txt2bin<I: Read, O: Write>(input: &mut I, output: &mut O) {
     let reader = BufReader::new(input);
     let mut iter = reader.bytes().map(|c| c.unwrap());
 
-    let version: u32 = read!("v{}\n", iter);
+    let version: u32 = hextou32(read!("v{}\n", iter));
     let mut lods: Vec<LOD> = Vec::new();
 
     loop {
